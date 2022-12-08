@@ -1,0 +1,6 @@
+blacklist:
+    - '771816442391691285'
+
+chance:
+    normal: 30
+    estourado: 5
