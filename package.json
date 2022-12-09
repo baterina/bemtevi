@@ -23,7 +23,6 @@
         "@discordjs/voice": "^0.14.0",
         "bufferutil": "^4.0.7",
         "discord.js": "^14.7.1",
-        "dotenv": "^16.0.3",
         "erlpack": "github:discord/erlpack",
         "utf-8-validate": "^5.0.10",
         "yaml": "^2.1.3",
