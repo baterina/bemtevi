@@ -1,5 +1,7 @@
+token: 'TOKEN'
+
 blacklist:
-    - '771816442391691285'
+    - 'CHANNEL_ID'
 
 chance:
     normal: 30
