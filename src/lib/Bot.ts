@@ -6,6 +6,7 @@ import { Config } from '../types/config'
 
 export class Bot extends Client {
     config: Config = {
+        token: '',
         blacklist: [] as string[],
         chance: {
             normal: 30,
@@ -39,11 +40,9 @@ export class Bot extends Client {
     }
 
     async start() {
-        const token = process.env.TOKEN!
-
         await this.loadConfig()
         await this.loadEvents()
-        await super.login(token)
+        await super.login(this.config.token)
 
         console.log('Logged in!')
     }

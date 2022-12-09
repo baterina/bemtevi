@@ -4,9 +4,9 @@
     "description": "",
     "main": "dist/index.js",
     "scripts": {
-        "start": "node -r dotenv/config .",
+        "start": "node .",
         "build": "tsc",
-        "dev": "tsnd -r dotenv/config src/index.ts"
+        "dev": "tsnd src/index.ts"
     },
     "keywords": [],
     "author": "",
