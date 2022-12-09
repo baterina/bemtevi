@@ -14,4 +14,4 @@ COPY . .
 
 RUN pnpm run build
 
-CMD [ "node", "-r", "dotenv/config", "." ]
+CMD [ "node", "." ]
