@@ -11,7 +11,7 @@ import {
 import { Bot } from '../lib/Bot'
 
 export default function run(this: Bot, oldState: VoiceState, newState: VoiceState) {
-    if (oldState.channelId !== newState.channelId && newState.channelId !== null) {
+    if (newState.channelId !== null && oldState.channelId !== newState.channelId) {
         // user joined channel
 
         if (this.config?.blacklist.includes(newState.channelId)) {
@@ -34,19 +34,18 @@ export default function run(this: Bot, oldState: VoiceState, newState: VoiceStat
             })
 
             connection.subscribe(player)
+            
+            // normal
+            let resourcePath = path.join(__dirname, '..', '..', 'assets', 'bemtevi.mp3')
 
             if (chance <= this.config.chance.estourado) {
                 // estourado
-                const resource = createAudioResource(
-                    path.join(__dirname, '..', '..', 'assets', 'bemtevi-estourado.mp3')
-                )
-
-                player.play(resource)
-            } else {
-                const resource = createAudioResource(path.join(__dirname, '..', '..', 'assets', 'bemtevi.mp3'))
-
-                player.play(resource)
+                resourcePath = path.join(__dirname, '..', '..', 'assets', 'bemtevi-estourado.mp3')
             }
+
+            const resource = createAudioResource(resourcePath)
+            
+            player.play(resource)
 
             player.on(AudioPlayerStatus.Idle, () => {
                 connection.destroy()
